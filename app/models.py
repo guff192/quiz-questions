@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, DateTime
 
 from database import Base
 
+
 class Question(Base):
     __tablename__ = "questions"
 
@@ -9,4 +10,3 @@ class Question(Base):
     question_text = Column(String)
     answer_text = Column(String)
     created_at = Column(DateTime)
-

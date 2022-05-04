@@ -1,7 +1,6 @@
 from datetime import datetime
-from typing import List
 
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from sqlalchemy import select
