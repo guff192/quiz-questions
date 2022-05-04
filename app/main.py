@@ -35,7 +35,7 @@ class QuestionResponse(BaseModel):
 
 
 @app.get("/test/", response_model=QuestionResponse)
-def get_question(db: Session = Depends(get_session)):
+def get_question(db_session: Session = Depends(get_session)):
     # Assuming that we have some question in db
     # q = Question(question_text="what?", answer_text="42", created_at=datetime.now())
     # db.add(q)
@@ -43,5 +43,5 @@ def get_question(db: Session = Depends(get_session)):
 
     query = select(Question).order_by(Question.id.desc()).limit(1)
 
-    return db.scalars(query).first()
+    return db_session.scalars(query).first()
 
