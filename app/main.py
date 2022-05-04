@@ -41,5 +41,7 @@ def get_question(db: Session = Depends(get_session)):
     # db.add(q)
     # db.commit()
 
-    return db.scalars(select(Question)).first()
+    query = select(Question).order_by(Question.id.desc()).limit(1)
+
+    return db.scalars(query).first()
 
