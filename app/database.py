@@ -3,7 +3,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./sqlite.db"
+# `bb` is hostname of database service
+# docker compose automatically create local network
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:qwerty@db:5432/postgres"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=True)
 session_local = sessionmaker(autocommit=False, autoflush=False, bind=engine)
